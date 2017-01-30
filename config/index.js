@@ -8,6 +8,7 @@ const environments = ['development', 'production', 'test', 'dll'];
 const getEnvironment = env =>
   env && environments.find(e => !!env[e]) || process.env.NODE_ENV || 'development';
 
+
 export default (env) => {
   const environment = getEnvironment(env);
   const environmentConfig = require(`./${environment}.js`); // eslint-disable-line
@@ -51,8 +52,12 @@ export default (env) => {
           exclude: /node_modules/
         },
         {
+          ...rules.raw,
+          test: /\.svg$/
+        },
+        {
           ...rules.font,
-          test: /\.(eot|svg|ttf|woff|woff2)$/
+          test: /\.(eot|ttf|woff|woff2)$/
         },
         {
           ...rules.image,

@@ -6,5 +6,8 @@
     "pages": "${workspaceRoot}/src/pages",
     "libs": "${workspaceRoot}/src/lins",
     "layouts": "${workspaceRoot}/src/layouts"
+  },
+  "files.associations": {
+    "*.css": "scss"
   }
 }

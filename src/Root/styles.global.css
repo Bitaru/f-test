@@ -1,0 +1,42 @@
+@import "normalize.css";
+
+body {
+   font-family: 'Source Sans Pro';
+   background-color: #F8F8F8;
+   text-rendering: optimizeLegibility;
+}
+
+.root{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-image{
+  opacity: 1;
+  transition: opacity .1s ease-in-out;
+}
+
+.toggler-icon{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  svg{
+    fill: color(#64A0D9 a(80%));
+    transition: fill .1s ease-in-out;
+  }
+}
+
+.toggler {
+  display: none;
+  &:checked ~ label svg {
+    fill: color(#333 a(20%));
+  }
+  &:checked ~ div .check-image {
+    opacity: 0;
+  }
+}
