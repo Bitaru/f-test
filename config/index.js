@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin';
 
-const environments = ['development', 'production', 'test', 'dll'];
+const environments = ['development', 'production', 'test', 'dll', 'static'];
 
 const getEnvironment = env =>
   env && environments.find(e => !!env[e]) || process.env.NODE_ENV || 'development';
@@ -14,7 +14,7 @@ export default (env) => {
   const environmentConfig = require(`./${environment}.js`); // eslint-disable-line
 
   if (typeof environmentConfig === 'function') return environmentConfig(env);
-  const { rules, publicPath, ...config } = environmentConfig;
+  const { rules, filename, publicPath, ...config } = environmentConfig;
 
   return {
     ...config,
@@ -26,13 +26,14 @@ export default (env) => {
     },
     entry: [
       ...config.entry,
-      './src/index.js'
+      // './src/index.js'
     ],
 
     output: {
+      ...config.output,
       path: path.resolve(process.cwd(), 'build'),
-      filename: '[name].[hash].js',
-      publicPath
+      filename: filename || '[name].[hash].js',
+      publicPath,
     },
 
     module: {
@@ -76,19 +77,10 @@ export default (env) => {
         }
       }),
 
-      new webpack.DllReferencePlugin({
-        context: path.join(process.cwd()),
-        manifest: require(path.join(process.cwd(), 'node_modules/dll/vendor-manifest.json'))
-      }),
-
       new HtmlWebpackPlugin({
         title: 'R-test',
         inject: true,
         template: 'src/index.html'
-      }),
-
-      new AddAssetHtmlPlugin({
-        filepath: require.resolve(path.join(process.cwd(), 'node_modules/dll/vendor.dll.js'))
       })
     ]
   };

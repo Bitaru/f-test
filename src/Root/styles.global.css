@@ -13,6 +13,23 @@ body {
   justify-content: center;
 }
 
+.source{
+  clear: both;
+  white-space: nowrap;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 10px;
+  a{
+    margin-left: 10px;
+  }
+  img{
+    width: 20px;
+    margin-right: 10px;
+    vertical-align: -4px;
+  }
+}
+
 .check-image{
   opacity: 1;
   transition: opacity .1s ease-in-out;

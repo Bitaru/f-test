@@ -8,6 +8,7 @@
 .wrap{
   position: relative;
   float: left;
+  margin-bottom: 50px;
   &:before, &:after{
     display: table;
     clear: both;

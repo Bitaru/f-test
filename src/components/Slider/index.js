@@ -1,5 +1,7 @@
 import { withCheckImage } from 'components/CheckImage';
 import { compose } from 'recompose';
+import Source from 'components/Source';
+
 import styles from './styles.css';
 import backgroundImage from './background.png';
 
@@ -47,5 +49,6 @@ export default compose(
         }
       </div>
     </div>
+    <Source url='https://github.com/Bitaru/f-test/tree/master/src/components/Slider' />
   </section>
 ));

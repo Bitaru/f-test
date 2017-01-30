@@ -1,4 +1,6 @@
 import { withCheckImage } from 'components/CheckImage';
+import Source from 'components/Source';
+
 import styles from './styles.css';
 import backgroundImage from './background_inactive.png';
 
@@ -24,5 +26,6 @@ export default withCheckImage(backgroundImage)(
       <h3 className={styles.title}>Yotpo</h3>
       <Toggler />
     </div>
+    <Source url='https://github.com/Bitaru/f-test/tree/master/src/components/Toggle' />
   </section>
 ));

@@ -67,6 +67,13 @@ export default {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new DashboardPlugin()
+    new DashboardPlugin(),
+    new webpack.DllReferencePlugin({
+      context: path.join(process.cwd()),
+      manifest: require(path.join(process.cwd(), 'node_modules/dll/vendor-manifest.json'))
+    }),
+    new AddAssetHtmlPlugin({
+      filepath: require.resolve(path.join(process.cwd(), 'node_modules/dll/vendor.dll.js'))
+    })
   ],
 };
