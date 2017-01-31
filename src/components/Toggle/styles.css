@@ -53,16 +53,16 @@
   display: inline-block;
   background: #ECECEC;
   border-radius: 2em;
-  padding: 2px;
+  padding: 3px;
   transition: background .2s ease-in-out;
-  width: 65px;
-  height: 35px;
+  width: 60px;
+  height: 30px;
   cursor: pointer;
   &:before{
     content: ' ';
     display: block;
     height: 100%;
-    width: 35px;
+    width: 30px;
     background: white;
     border-radius: 50%;
     transition: transform .2s ease-in-out;
@@ -70,7 +70,7 @@
   .input:checked ~ &{
     background: #49B083;
     &:before{
-      transform: translate3d(30px, 0, 0);
+      transform: translate3d(100%, 0, 0);
     }
   }
 }

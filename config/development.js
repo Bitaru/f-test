@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import DashboardPlugin from 'webpack-dashboard/plugin';
+import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin';
 import { defaultRules } from './default';
 
 const rules = {

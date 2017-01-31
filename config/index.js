@@ -1,7 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin';
 
 const environments = ['development', 'production', 'test', 'dll', 'static'];
 

@@ -87,7 +87,7 @@
   font-size: 21px;
   color: var(--dark-blue);
   height: 50px;
-  top: 42px;
+  top: 43px;
   line-height: 70px;
   &:before{
     content: ' ';
